@@ -1,0 +1,365 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h3, p {
+  margin: 0;
+}
+
+/* Header */
+.header {
+  background-color: #333;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 100px; 
+  height: 100px;
+  border-radius: 50%; 
+  margin-right: 15px;
+}
+
+.brand-name {
+  font-family: "Montserrat", sans-serif; 
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffcc00; 
+}
+
+/* Search Bar */
+.search-bar {
+  display: flex;
+  gap: 10px;
+  padding: 20px;
+  justify-content: center;
+}
+
+.search-bar input {
+  width: 80%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 35px;
+}
+
+.search-bar button {
+  padding: 10px 15px;
+  font-size: 16px;
+  background-color: #0c0c0c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-bar button:hover {
+  background-color:#ffaa00;
+}
+
+/* Style for the search results */
+.search-results {
+  padding: 20px;
+  background-color: #f9f9f9;
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-results h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.search-result-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-around;
+}
+
+/* Individual search result item */
+.search-result-item {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 250px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.search-result-item img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.search-result-info {
+  padding: 15px;
+}
+
+.search-result-info h3 {
+  font-size: 18px;
+  color: #444;
+  margin: 10px 0;
+}
+
+.search-result-info p {
+  font-size: 14px;
+  color: #666;
+  margin: 5px 0;
+}
+
+.movie-desc {
+  font-size: 14px;
+  color: #777;
+  text-align: justify;
+  margin-top: 10px;
+  line-height: 1.6;
+  max-height: none;  
+  overflow: visible; 
+  white-space: normal; 
+}
+
+.search-result-info p strong {
+  color: #ff9800; 
+}
+
+
+/* Genre Buttons */
+.genres {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.genre-button {
+  padding: 10px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ffcc00; 
+  color: black;
+  font-size: 1em;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.genre-button:hover {
+  background-color: #ffaa00;
+  transform: scale(1.1);
+}
+
+.genre-button.active {
+  background-color: #ff6600;
+  color: white;
+}
+
+.toggle-genres-button {
+  display: none; 
+  margin: 10px auto;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* Movie List */
+.movie-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  gap: 60px;
+  padding: 15px;
+  margin: auto;
+}
+
+/* Card Styling */
+.movie-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: left;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 300px;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.movie-card img {
+  width: 100%;
+  height: 200px;
+  object-fit:contain;
+  border-bottom: 1px solid #ddd;
+}
+
+.movie-info {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.movie-info h3 {
+  font-size: 18px;
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.movie-rating {
+  font-size: 14px;
+  color: #ffcc00;
+  margin: 5px 0;
+}
+
+.movie-description {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Responsive Styles */
+
+/* Header */
+@media (max-width: 768px) and (min-width: 320px) {
+  .App, body {
+    width: 100%;
+    margin: 0;
+  }
+  .header {
+    width: 100%;
+    margin-right: 0;
+  }
+  .header h1 {
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+  .logo-container img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+}
+
+/* SearchBar */
+@media (max-width: 1024px) and (min-width: 320px) {
+  .search-bar {
+    flex-direction: column;
+  }
+  .search-bar input {
+    margin-bottom: 10px;
+    width: 60%;
+  }
+  .search-bar button {
+    width: 35%;
+    font-size: 15px;
+    justify-content: center;
+  }
+}
+
+/* Search Result */
+@media (max-width: 768px) {
+  .search-result-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  .search-result-item {
+    width: 100%;
+    max-width: 300px;
+  }
+  .search-result-info h3 {
+    font-size: 16px;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 600px) {
+  .toggle-genres-button {
+    display: block; 
+    justify-content: center;
+    text-align: center;
+  }
+
+  .genres {
+    flex-direction: column;
+    gap: 5px;
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  .genres.visible {
+    max-height: 300px; 
+  }
+
+  .genre-button {
+    margin: auto;
+    font-size: 0.6rem;
+    padding: 8px 10px;
+    width: 100px;
+  }
+}
+
+/* Tablet Styles */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .genres {
+    gap: 8px;
+    justify-content: flex-start;
+    margin-left: 40px;
+  }
+  .genre-button {
+    font-size: 0.8rem;
+    padding: 6px 6px;
+    margin: 0;
+    width: 70px;
+  }
+}
+
+/*list of mocies*/
+@media (max-width: 1024px) {
+  .movie-list {
+    grid-template-columns: repeat(3, 1fr); 
+  }
+}
+
+@media (max-width: 768px) {
+  .movie-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .movie-list {
+    grid-template-columns: 1fr; 
+  }
+}
